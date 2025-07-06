@@ -10,10 +10,11 @@
 //Otimize o código C# abaixo utilizando o mínimo de linhas de código possível
 //Dê preferência ao LINQ e funções LAMBDA
 
+using CW_CSharp.Printers;
+
 internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
     }
 }
