@@ -10,11 +10,14 @@
 //Otimize o código C# abaixo utilizando o mínimo de linhas de código possível
 //Dê preferência ao LINQ e funções LAMBDA
 
-using CW_CSharp.Printers;
+using CW_CSharp.Katas.Rank.Kyu6;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
+        string word = "(( @";
+        string Newword = ParenthesesDecoding.DuplicateEncode(word);
+        Console.WriteLine($"{word} was decoded to {Newword}.");
     }
 }
