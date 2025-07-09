@@ -17,7 +17,7 @@ internal class Program
     private static void Main(string[] args)
     {
         string word = "(( @";
-        string Newword = ParenthesesDecoding.DuplicateEncode(word);
+        string Newword = ParenthesesDecoding.DuplicateEncode2(word);
         Console.WriteLine($"{word} was decoded to {Newword}.");
     }
 }

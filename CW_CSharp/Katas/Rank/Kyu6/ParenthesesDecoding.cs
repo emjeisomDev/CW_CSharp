@@ -63,5 +63,38 @@ namespace CW_CSharp.Katas.Rank.Kyu6
 
             return newWord.ToString();
         }
+
+        public static string DuplicateEncode2(string word) {
+
+            word = word.ToLower();
+            Dictionary<char, int> charOccurrences = new Dictionary<char, int>();
+
+
+            foreach (char c in word)
+            {
+                if (charOccurrences.ContainsKey(c)) 
+                { 
+                    charOccurrences[c]++; 
+                } 
+                else 
+                { 
+                    charOccurrences[c] = 1; 
+                }
+            }
+
+            StringBuilder newWord = new StringBuilder();
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (charOccurrences[word[i]] < 2){
+                    newWord.Append("(");
+                }
+                else { 
+                    newWord.Append(")");
+                }
+            }
+            return newWord.ToString();
+        }
+
+
     }
 }
