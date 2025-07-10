@@ -29,6 +29,7 @@
 ///  https://www.codewars.com/kata/54b42f9314d9229fd6000d9c/train/csharp
 /// </example>
 
+using System.Linq;
 using System.Text;
 
 namespace CW_CSharp.Katas.Rank.Kyu6
@@ -93,6 +94,13 @@ namespace CW_CSharp.Katas.Rank.Kyu6
                 }
             }
             return newWord.ToString();
+        }
+
+
+        public static string DuplicateEncode3(string word)
+        {
+            Dictionary<char, int> charOccurrences = word.ToLower().GroupBy(k => k).ToDictionary(k => k.Key, v => v.Count());
+            return string.Concat(word.ToLower().Select(c => charOccurrences[c] < 2 ? '(' : ')'));
         }
 
 
