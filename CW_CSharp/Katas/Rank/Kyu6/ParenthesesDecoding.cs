@@ -103,6 +103,18 @@ namespace CW_CSharp.Katas.Rank.Kyu6
             return string.Concat(word.ToLower().Select(c => charOccurrences[c] < 2 ? '(' : ')'));
         }
 
+        public static string DuplicateEncode4(string word) 
+            => string.Concat(
+                    word
+                    .ToLower()
+                    .Select(
+                         c => word
+                        .ToLower()
+                        .GroupBy(k => k)
+                        .ToDictionary(k => k.Key, v => v.Count())[c] < 2 ? '(' : ')'
+                     )
+                );
+
 
     }
 }

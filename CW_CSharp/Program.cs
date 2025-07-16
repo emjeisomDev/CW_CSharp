@@ -10,14 +10,29 @@
 //Otimize o código C# abaixo utilizando o mínimo de linhas de código possível
 //Dê preferência ao LINQ e funções LAMBDA
 
+using CW_CSharp.Katas.Rank.Kyu5;
 using CW_CSharp.Katas.Rank.Kyu6;
+using CW_CSharp.Practicalities;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        string word = "Success";
-        string Newword = ParenthesesDecoding.DuplicateEncode3(word);
-        Console.WriteLine($"{word} was decoded to {Newword}.");
+        uint number32bis = 32;
+        Console.WriteLine($"32 bits number {number32bis} ==> IPv4 {IPv4Converter.UInt32ToIP(number32bis)}");
+
+        //Console.WriteLine("-----------------------------------------");
+        //NumberSystemsConvert nb = new NumberSystemsConvert("10000000");
+        //Console.WriteLine(nb.toBinToDec());
+        //nb.OtherBaseNumber = "00100000";
+        //Console.WriteLine(nb.toBinToDec());
+        //nb.OtherBaseNumber = "00001010";
+        //Console.WriteLine(nb.toBinToDec());
+        //nb.OtherBaseNumber = "00000001";
+        //Console.WriteLine(nb.toBinToDec());
+
+        //string word = "Success";
+        //string Newword = ParenthesesDecoding.DuplicateEncode(word);
+        //Console.WriteLine($"{word} was decoded to {Newword}.");
     }
 }
