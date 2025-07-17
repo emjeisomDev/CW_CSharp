@@ -26,7 +26,8 @@
 /// <returns>Uma string representando o endereço IPv4 correspondente na notação de ponto decimal.</returns>
 /// https://www.codewars.com/kata/52e88b39ffb6ac53a400022e/train/csharp
 using System;
-using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Text;
 
 
@@ -39,8 +40,10 @@ namespace CW_CSharp.Katas.Rank.Kyu5
         /// </summary>
         /// <param name="num">O número inteiro sem sinal de 32 bits a ser convertido.</param>
         /// <returns>Uma string representando o endereço IPv4.</returns>
-        
         public static string UInt32ToIP(uint ip)
+            => IPAddress.Parse(ip.ToString()).ToString();
+
+        public static string UInt32ToIP_2(uint ip)
         {
             string binNumber = $"{ip:B32}";
             int byteLen = 8;
@@ -54,7 +57,7 @@ namespace CW_CSharp.Katas.Rank.Kyu5
             return string.Join(".", ipv4);
         }
 
-        public static string UInt32ToIP_2(uint ip)
+        public static string UInt32ToIP_3(uint ip)
         {
             StringBuilder ipv4 = new StringBuilder();
             string binNumber = $"{ip:B32}";

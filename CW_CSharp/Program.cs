@@ -21,8 +21,8 @@ internal class Program
 
 
 
-        uint number32bis = 2149583361;
-        Console.WriteLine($"32 bits number {number32bis} ==> IPv4 {IPv4Converter.UInt32ToIP(number32bis)}");
+        //uint number32bis = 2149583361;
+        //Console.WriteLine($"32 bits number {number32bis} ==> IPv4 {IPv4Converter.UInt32ToIP(number32bis)}");
 
         //Console.WriteLine("-----------------------------------------");
         //NumberSystemsConvert nb = new NumberSystemsConvert("10000000");
