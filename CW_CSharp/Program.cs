@@ -18,7 +18,10 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        uint number32bis = 32;
+
+
+
+        uint number32bis = 2149583361;
         Console.WriteLine($"32 bits number {number32bis} ==> IPv4 {IPv4Converter.UInt32ToIP(number32bis)}");
 
         //Console.WriteLine("-----------------------------------------");
