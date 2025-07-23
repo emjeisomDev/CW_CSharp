@@ -10,16 +10,15 @@
 //Otimize o código C# abaixo utilizando o mínimo de linhas de código possível
 //Dê preferência ao LINQ e funções LAMBDA
 
-using CW_CSharp.Katas.Rank.Kyu5;
 using CW_CSharp.Katas.Rank.Kyu6;
-using CW_CSharp.Practicalities;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
 
-
+        string roman = "MDCLXVI";
+        Console.WriteLine($"The roman number '{roman}' converted to cardinal is {RomanDecode.FromRoman(roman)}.");
 
         //uint number32bis = 2149583361;
         //Console.WriteLine($"32 bits number {number32bis} ==> IPv4 {IPv4Converter.UInt32ToIP(number32bis)}");
