@@ -17,7 +17,7 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        string roman = "MDCLXVI";
+        string roman = "MMM";
         Console.WriteLine($"The roman number '{roman}' converted to cardinal is {RomanDecode.FromRoman(roman)}.");
 
         //uint number32bis = 2149583361;

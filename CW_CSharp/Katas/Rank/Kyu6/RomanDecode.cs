@@ -104,21 +104,45 @@
 /// </ul>
 /// https://www.codewars.com/kata/51b6249c4612257ac0000005/train/csharp
 /// </remarks>
-using System;
 
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CW_CSharp.Katas.Rank.Kyu6
 {
     public class RomanDecode
     {
+
+
+
         public static int FromRoman(string roman)
+        {
+            var decNum = roman.Select(x => EqRom()[x]);
+            return decNum.Zip(decNum.Skip(1), (curr, next) => curr >= next ? curr : -curr).Sum() + decNum.LastOrDefault();
+        }
+
+        private static Dictionary<char, int> EqRom()
+            => new Dictionary<char, int>()
+                {
+                    { 'I', 1 },
+                    { 'V', 5 },
+                    { 'X', 10 },
+                    { 'L', 50 },
+                    { 'C', 100 },
+                    { 'D', 500 },
+                    { 'M', 1000 },
+                };
+
+
+
+    public static int FromRoman_2(string roman)
         {
             int[] decNum = new int[roman.Length];
             int result = 0;
 
             for (int i = 0; i < roman.Length; i++)
             {
-                decNum[i] = EqRom(roman[i].ToString());
+                decNum[i] = EqRom_2(roman[i].ToString());
             }
 
             if (decNum.Length >= 1) { result = decNum[decNum.Length - 1]; }
@@ -127,20 +151,18 @@ namespace CW_CSharp.Katas.Rank.Kyu6
             {
                 if (decNum[i] >= decNum[i + 1])
                 {
-                    result = result + decNum[i];
+                    result += decNum[i];
                 }
                 else
                 {
-                    result = result - decNum[i];
+                    result -= decNum[i];
                 }
             }
 
 
-            return 0;
+            return result;
         }
-
-
-        public static int EqRom(string roman)
+        private static int EqRom_2(string roman)
         {
 
             switch (roman.ToUpper())
