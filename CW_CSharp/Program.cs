@@ -20,6 +20,9 @@ internal class Program
         string roman = "MMM";
         Console.WriteLine($"The roman number '{roman}' converted to cardinal is {RomanDecode.FromRoman(roman)}.");
 
+        int n = 444;
+        Console.WriteLine($"The cardinal number '{n}' converted to roman is {RomanDecode.ToRoman(n)}.");
+
         //uint number32bis = 2149583361;
         //Console.WriteLine($"32 bits number {number32bis} ==> IPv4 {IPv4Converter.UInt32ToIP(number32bis)}");
 

@@ -105,15 +105,181 @@
 /// https://www.codewars.com/kata/51b6249c4612257ac0000005/train/csharp
 /// </remarks>
 
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
+using System.Text;
+
 
 namespace CW_CSharp.Katas.Rank.Kyu6
 {
     public class RomanDecode
     {
 
+        public static String ToRoman(int n)
+        {
+            Dictionary<int, int> Rel = RelativeNumbers(n);
+            StringBuilder romanNumber = new StringBuilder();
 
+            foreach (KeyValuePair<int, int> r in Rel)
+            {
+
+                switch (r.Key)
+                {
+                    case 1000:
+                        romanNumber.Append( BuilderRomanNumber("M", r.Value) );
+                        break;
+                    case 900:
+                        romanNumber.Append(BuilderRomanNumber("CM", r.Value));
+                        break;
+                    case 500:
+                        romanNumber.Append(BuilderRomanNumber("D", r.Value));
+                        break;
+                    case 400:
+                        romanNumber.Append(BuilderRomanNumber("CD", r.Value));
+                        break;
+                    case 100:
+                        romanNumber.Append(BuilderRomanNumber("C", r.Value));
+                        break;
+                    case 90:
+                        romanNumber.Append(BuilderRomanNumber("XC", r.Value));
+                        break;
+                    case 50:
+                        romanNumber.Append(BuilderRomanNumber("L", r.Value));
+                        break;
+                    case 40:
+                        romanNumber.Append(BuilderRomanNumber("XL", r.Value));
+                        break;
+                    case 10:
+                        romanNumber.Append(BuilderRomanNumber("X", r.Value));
+                        break;
+                    case 9:
+                        romanNumber.Append(BuilderRomanNumber("IX", r.Value));
+                        break;
+                    case 5:
+                        romanNumber.Append(BuilderRomanNumber("V", r.Value));
+                        break;
+                    case 4:
+                        romanNumber.Append(BuilderRomanNumber("IV", r.Value));
+                        break;
+                    case 1:
+                        romanNumber.Append(BuilderRomanNumber("I", r.Value));
+                        break;
+                    default:
+                        break;
+                }
+
+
+
+            }
+                return romanNumber.ToString();
+        }
+
+        public static string BuilderRomanNumber(string roman, int value)
+        {
+            StringBuilder r = new StringBuilder();
+
+            for (int i = 0; i < value; i++)
+            {
+                r.Append(roman);
+            }
+
+            return r.ToString();
+        }
+
+
+        private static Dictionary<int, int> RelativeNumbers(int n)
+        {
+
+            Dictionary<int, int> result = new Dictionary<int, int>();
+            int remainder = 0;
+
+            while (n > 0) {
+
+                switch (n)
+                {
+                    case >= 1000:
+                        result.Add(1000, n / 1000);
+                        remainder = n % 1000;
+                        n = remainder;
+                        break;
+                    case >= 900:
+                        result.Add(900, n / 900);
+                        remainder = n % 900;
+                        n = remainder;
+                        break;
+                    case >= 500:
+                        result.Add(500, n / 500);
+                        remainder = n % 500;
+                        n = remainder;
+                        break;
+                    case >= 400:
+                        result.Add(400, n / 400);
+                        remainder = n % 400;
+                        n = remainder;
+                        break;
+                    case >= 100:
+                        result.Add(100, n / 100);
+                        remainder = n % 100;
+                        n = remainder;
+                        break;
+                    case >= 90:
+                        result.Add(90, n / 90);
+                        remainder = n % 90;
+                        n = remainder;
+                        break;
+                    case >= 50:
+                        result.Add(50, n / 50);
+                        remainder = n % 50;
+                        n = remainder;
+                        break;
+                    case >= 40:
+                        result.Add(40, n / 40);
+                        remainder = n % 40;
+                        n = remainder;
+                        break;
+                    case >= 10:
+                        result.Add(10, n / 10);
+                        remainder = n % 10;
+                        n = remainder;
+                        break;
+                    case >= 9:
+                        result.Add(9, n / 9);
+                        remainder = n % 9;
+                        n = remainder;
+                        break;
+                    case >= 5:
+                        result.Add(5, n / 5);
+                        remainder = n % 5;
+                        n = remainder;
+                        break;
+                    case >= 4:
+                        result.Add(4, n / 4);
+                        remainder = n % 4;
+                        n = remainder;
+                        break;
+                    default:
+                        result.Add(1, n / 1);
+                        remainder = n % 1;
+                        n = remainder;
+                        break;
+                }
+            }
+
+            return result;
+        }
+
+
+        private static Dictionary<int, int> EqDec(int n)
+            => new Dictionary<int, int>()
+                {
+                    { 0001, 0001 },
+                    { 0005, 0005 },
+                    { 0010, 0010 },
+                    { 0050, 0050 },
+                    { 0100, 0100 },
+                    { 0500, 0500 },
+                    { 1000, 1000 },
+                };
 
         public static int FromRoman(string roman)
         {
