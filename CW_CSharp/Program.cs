@@ -17,10 +17,10 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        string roman = "MMM";
+        string roman = "MMCDXCIV";
         Console.WriteLine($"The roman number '{roman}' converted to cardinal is {RomanDecode.FromRoman(roman)}.");
 
-        int n = 444;
+        int n = 2494;
         Console.WriteLine($"The cardinal number '{n}' converted to roman is {RomanDecode.ToRoman(n)}.");
 
         //uint number32bis = 2149583361;
