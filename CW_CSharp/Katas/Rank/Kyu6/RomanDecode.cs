@@ -117,20 +117,16 @@ namespace CW_CSharp.Katas.Rank.Kyu6
 
         public static String ToRoman(int n)
         {
-            int i = 0;
             StringBuilder romanNumber = new StringBuilder();
             var relativeNumbers = new[] 
                                     { (1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
                                       (100, "C"), (90, "XC"), (50, "L"), (40, "XL"),
                                       (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I") };
-            while (n > 0) {
-                if (n >= relativeNumbers[i].Item1) {
-                    romanNumber.Append(relativeNumbers[i].Item2);
-                    n -= relativeNumbers[i].Item1;
-                }
-                else
+            foreach (var relativeNumber in relativeNumbers) {
+                while (n >= relativeNumber.Item1)
                 {
-                    i++;
+                    romanNumber.Append(relativeNumber.Item2);
+                    n -= relativeNumber.Item1;
                 }
             }
             return romanNumber.ToString();

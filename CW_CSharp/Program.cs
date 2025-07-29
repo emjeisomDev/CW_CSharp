@@ -17,11 +17,13 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        string roman = "MMCDXCIV";
-        Console.WriteLine($"The roman number '{roman}' converted to cardinal is {RomanDecode.FromRoman(roman)}.");
 
-        int n = 2494;
-        Console.WriteLine($"The cardinal number '{n}' converted to roman is {RomanDecode.ToRoman(n)}.");
+
+
+        //string roman = "MMCDXCIV";
+        //Console.WriteLine($"The roman number '{roman}' converted to cardinal is {RomanDecode.FromRoman(roman)}.");
+        //int n = 2494;
+        //Console.WriteLine($"The cardinal number '{n}' converted to roman is {RomanDecode.ToRoman(n)}.");
 
         //uint number32bis = 2149583361;
         //Console.WriteLine($"32 bits number {number32bis} ==> IPv4 {IPv4Converter.UInt32ToIP(number32bis)}");
