@@ -10,14 +10,17 @@
 //Otimize o código C# abaixo utilizando o mínimo de linhas de código possível
 //Dê preferência ao LINQ e funções LAMBDA
 
+using CW_CSharp.Katas.Rank.Kyu5;
 using CW_CSharp.Katas.Rank.Kyu6;
+using System;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
 
-
+        string strng = "100 180 90 56 65 74 68 86 99";
+        Console.WriteLine($"New weights order {WeightSort.orderWeight(strng)}");
 
 
         //string roman = "MMCDXCIV";
