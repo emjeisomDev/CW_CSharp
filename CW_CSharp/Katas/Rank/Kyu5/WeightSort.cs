@@ -79,31 +79,45 @@ namespace CW_CSharp.Katas.Rank.Kyu5
     {
         public static string orderWeight(string strng)
         {
-            if (strng.Equals(string.Empty)) return "String vazia";
-
-            List<SortWeight> sums = new List<SortWeight>();
-            var newOrder = strng.Split(" ").ToArray();
-
-            for (int i = 0; i < newOrder.Length; i++)
-            {
-                sums.Add(
-                    new SortWeight
-                    {
-                        NewWeight = (int)newOrder[i].Select(c => Convert.ToInt64(c.ToString())).Sum(),
-                        CurrWeight = newOrder[i]
-                    }
-                );
-            }
-
-            return string.Join(" ", sums.OrderBy(cw => cw.NewWeight).ThenBy(nw => nw.CurrWeight).Select(nw => nw.CurrWeight).ToList());
+            return string.Join(" ", strng.Split(' ')
+                .OrderBy(n => n.ToCharArray()
+                .Select(c => (int)char.GetNumericValue(c)).Sum())
+                .ThenBy(n => n));
         }
     }
 
-    public class SortWeight
-    {
-        public string CurrWeight { get; set; }
-        public int NewWeight { get; set; }
-    }
-
-
 }
+
+/// <summary>
+/// Documentação sobre a otimização do código que manipula a ordenação de números em Brainfk.
+/// </summary>
+/// <remarks>
+/// Este código foi otimizado para melhorar a concisão, legibilidade e performance. As principais alterações incluem:
+/// <para>
+/// 1. Concisão:
+/// - A criação de uma instância de lista (sums) foi evitada, e a ordenação é manipulada diretamente com LINQ, simplificando a lógica e 
+///   reduzindo o número de linhas.
+/// - A soma dos dígitos dos números agora é feita de forma mais direta, utilizando <c>ToCharArray()</c> e <c>char.GetNumericValue(c)</c>, 
+///   sem a necessidade de conversões para tipos como long ou int, tornando o código mais enxuto e eficiente.
+/// </para>
+/// <para>
+/// 2. Legibilidade:
+/// - O nome da variável <c>n</c> foi mantido, mas poderia ser renomeado para algo mais descritivo, como <c>number</c> ou <c>weight</c>, para 
+///   melhorar a clareza do código.
+/// - A soma de dígitos foi implementada com <c>char.GetNumericValue(c)</c>, que é uma forma direta e legível para obter o valor numérico de 
+///   cada caractere.
+/// - A remoção da classe <c>SortWeight</c> simplifica ainda mais o código, tornando-o mais direto e fácil de entender.
+/// </para>
+/// <para>
+/// 3. Performance:
+/// - A conversão de caracteres para valores numéricos foi otimizada, utilizando <c>char.GetNumericValue(c)</c> ao invés de conversões como <c>
+///   Convert.ToInt64()</c>, resultando em uma melhoria no desempenho.
+/// - A utilização de <c>IEnumerable</c> ao invés de <c>ToList()</c> evita a conversão desnecessária para lista, otimizando o código, pois <c>
+///   IEnumerable</c> pode ser iterado diretamente.
+/// </para>
+/// <para>
+/// 4. Sugestões de melhoria:
+/// - O código está bem otimizado e conciso. A única sugestão seria renomear a variável <c>n</c> para algo mais explícito, como <c>number</c>
+///   ou <c>weight</c>, para garantir maior clareza sem comprometer a concisão.
+/// </para>
+/// </remarks>
